@@ -64,7 +64,7 @@ loadData <- function() {
 createPlot1 <- function() {
         data <- loadData()
         
-        png ( filename = "plot1.png" ) # default size of png is 480 x 480 so no necessaty in additional parameters
+        png( filename = "plot1.png" ) # default size of png is 480 x 480 so no necessaty in additional parameters
         
         # draw Global Active Power historgamm with red color and custom labels
         hist( data$Global_active_power, breaks = seq( 0, 7.5, 0.5 ), col = "red", 

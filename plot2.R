@@ -29,8 +29,8 @@ createPlot2 <- function() {
         
         png( filename = "plot2.png" ) # default size of png is 480 x 480 so no necessaty in additional parameters
         
-        plot( data$Time, data$Global_active_power, type = "l", 
-              xlab = "", ylab = "Global Active Power (kilowatts)" )        
+        with ( data, plot( Time, Global_active_power, type = "l", 
+                           xlab = "", ylab = "Global Active Power (kilowatts)" ) )
         
         dev.off()
 }

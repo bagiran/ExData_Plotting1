@@ -29,10 +29,10 @@ createPlot3 <- function() {
         
         png( filename = "plot3.png" ) # default size of png is 480 x 480 so no necessaty in additional parameters
         
-        plot( data$Time, data$Sub_metering_1, type = "l", col = "black", 
-              xlab = "", ylab = "Energy sub metering" );
-        lines( data$Time, data$Sub_metering_2, col = "red" )
-        lines( data$Time, data$Sub_metering_3, col = "blue" )
+        with( data, plot( Time, Sub_metering_1, type = "l", col = "black", 
+                          xlab = "", ylab = "Energy sub metering" ) )
+        with( data, lines( Time, Sub_metering_2, col = "red" ) )
+        with( data, lines( Time, Sub_metering_3, col = "blue" ) )
         
         legend( "topright", lty = rep( 1, 3 ), col = c( "black", "red", "blue" ),
                 legend = c( "Sub_metering_1", "Sub_metering_2", "Sub_metering_3" ) )
