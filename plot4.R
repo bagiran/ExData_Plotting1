@@ -35,24 +35,26 @@ createPlot4 <- function() {
         #     And other labels have different writing rules
         #     But they're requested by cource so I had to leave them as they are :(
         
-        # this plot looks like Global Active Power from plot2 but it has different y-label
-        with( data, plot( Time, Global_active_power, type = "l", 
-                          xlab = "", ylab = "Global Active Power" ) )
+        with( data, { 
+                # this plot looks like Global Active Power from plot2 but it has different y-label
+                plot( Time, Global_active_power, type = "l", 
+                      xlab = "", ylab = "Global Active Power" )
         
-        # plot voltage
-        with( data, plot( Time, Voltage, type = "l", xlab = "datetime" ) )
+                # plot voltage
+                plot( Time, Voltage, type = "l", xlab = "datetime" )
         
-        # this plot looks like Energy Sub Metering plot from plot3 but has different legend
-        with( data, plot( Time, Sub_metering_1, type = "l", col = "black", 
-                          xlab = "", ylab = "Energy sub metering" ) )
-        with( data, lines( data$Time, data$Sub_metering_2, col = "red" ) )
-        with( data, lines( data$Time, data$Sub_metering_3, col = "blue" ) )
+                # this plot looks like Energy Sub Metering plot from plot3 but has different legend
+                plot( Time, Sub_metering_1, type = "l", col = "black", 
+                      xlab = "", ylab = "Energy sub metering" )
+                lines( data$Time, data$Sub_metering_2, col = "red" )
+                lines( data$Time, data$Sub_metering_3, col = "blue" )
         
-        legend( "topright", bty = "n", lty = rep( 1, 3 ), col = c( "black", "red", "blue" ),
-                legend = c( "Sub_metering_1", "Sub_metering_2", "Sub_metering_3" ) )
+                legend( "topright", bty = "n", lty = rep( 1, 3 ), col = c( "black", "red", "blue" ),
+                        legend = c( "Sub_metering_1", "Sub_metering_2", "Sub_metering_3" ) )
         
-        # plot global relative power
-        with( data, plot( Time, Global_reactive_power, type = "l", xlab = "datetime" ) )
+                # plot global relative power
+                plot( Time, Global_reactive_power, type = "l", xlab = "datetime" )
+        })
         
         dev.off()
 }
